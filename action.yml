@@ -8,11 +8,14 @@ branding:
 
 inputs:
   cli_version:
+    description: "The version of @aws-amplify/cli to install."
     required: false
     default: "latest"
   node_version:
+    description: "The version of node to setup. See https://github.com/actions/setup-node."
     required: true
   cache_dependencies:
+    description: "Whether to cache the installed @aws-amplify/cli or not. Uses actions/cache."
     required: true
     default: "false"
 
