@@ -3,8 +3,8 @@ description: Installs the @aws-amplify/cli npm package
 
 author: "philip-gai"
 branding:
-  icon: "code"
-  color: "yellow"
+  icon: "upload-cloud"
+  color: "orange"
 
 inputs:
   cli_version:
