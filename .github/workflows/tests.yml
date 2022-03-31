@@ -54,3 +54,36 @@ jobs:
         uses: ./test-action
         with:
           cli_version: "7.6.22"
+  setup-with-cache-first-run:
+    name: Setup with cache enabled (first run)
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-20.04, ubuntu-18.04]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          path: test-action
+      - name: Setup @aws-amplify/cli@latest
+        uses: ./test-action
+        with:
+          cache_dependencies: "true"
+  setup-with-cache-second-run:
+    name: Setup with cache enabled (first run)
+    needs: setup-with-cache-first-run
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-20.04, ubuntu-18.04]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          path: test-action
+      - name: Setup @aws-amplify/cli@latest
+        uses: ./test-action
+        with:
+          cache_dependencies: "true"
