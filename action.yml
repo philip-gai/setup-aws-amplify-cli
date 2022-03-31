@@ -1,0 +1,26 @@
+name: Setup @aws-amplify/cli
+description: Installs the @aws-amplify/cli npm package
+
+author: "philip-gai"
+branding:
+  icon: "code"
+  color: "yellow"
+
+inputs:
+  cli_version:
+    default: latest
+    required: false
+  node_version:
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setuo node ${{ inputs.node_version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ inputs.node_version }}
+    - name: Install @aws-amplify/cli@${{ inputs.cli_version }}
+      shell: bash
+      run: |
+        npm install -g @aws-amplify/cli@${{ inputs.cli_version }}
