@@ -9,7 +9,7 @@ on:
 
 jobs:
   setup-test:
-    name: Setup @aws-amplify/cli@latest
+    name: Setup with defaults
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -23,7 +23,7 @@ jobs:
       - name: Setup @aws-amplify/cli@latest
         uses: ./test-action
   setup-node-version:
-    name: Setup @aws-amplify/cli@latest
+    name: Setup with node version 14
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -39,7 +39,7 @@ jobs:
         with:
           node_version: "14"
   setup-amplify-version:
-    name: Setup @aws-amplify/cli@7.6.22
+    name: Setup with cli version 7.6.22
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
