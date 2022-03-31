@@ -1,0 +1,56 @@
+name: setup-aws-amplify tests
+
+on:
+  workflow_dispatch: {}
+  pull_request: {}
+  push:
+    branches: ["main"]
+    paths: ["action.yml", ".github/workflows/tests.yml"]
+
+jobs:
+  setup-test:
+    name: Setup @aws-amplify/cli@latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-20.04, ubuntu-18.04]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          path: test-action
+      - name: Setup @aws-amplify/cli@latest
+        uses: ./test-action
+  setup-node-version:
+    name: Setup @aws-amplify/cli@latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-20.04, ubuntu-18.04]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          path: test-action
+      - name: Setup @aws-amplify/cli@latest
+        uses: ./test-action
+        with:
+          node_version: "14"
+  setup-amplify-version:
+    name: Setup @aws-amplify/cli@7.6.22
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-20.04, ubuntu-18.04]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          path: test-action
+      - name: Setup @aws-amplify/cli@7.6.22
+        uses: ./test-action
+        with:
+          cli_version: "7.6.22"

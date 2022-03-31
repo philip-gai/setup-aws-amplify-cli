@@ -8,18 +8,18 @@ branding:
 
 inputs:
   cli_version:
-    default: latest
     required: false
+    default: "latest"
   node_version:
     required: true
 
 runs:
   using: "composite"
   steps:
-    - name: Setuo node ${{ inputs.node_version }}
+    - name: Setup node ${{ inputs.node_version }}
       uses: actions/setup-node@v2
       with:
-        node-version: ${{ inputs.node_version }}
+        node-version: "${{ inputs.node_version }}"
     - name: Install @aws-amplify/cli@${{ inputs.cli_version }}
       shell: bash
       run: |
