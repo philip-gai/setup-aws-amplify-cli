@@ -29,7 +29,7 @@ runs:
       uses: actions/setup-node@v2
       with:
         node-version: "${{ inputs.node_version }}"
-        registry_url: "${{ inputs.registry_url }}"
+        registry-url: "${{ inputs.registry_url }}"
     - if: inputs.cache_dependencies == 'true'
       name: Cache node modules
       uses: actions/cache@v2
