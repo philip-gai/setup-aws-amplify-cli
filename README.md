@@ -7,3 +7,4 @@ An Action to setup the @aws-amplify/cli npm package.
 - `cache_dependencies` (Optional, Default: `false`): Whether to cache the installed @aws-amplify/cli or not. Uses <https://github.com/actions/cache>.
 - `cli_version` (Optional, Default: `latest`): The version of @aws-amplify/cli to install.
 - `node_version` (Optional): The version of node to setup. Uses <https://github.com/actions/setup-node>. If not supplied, the node version from PATH will be used. However, it is recommended to always specify Node.js version and don't rely on the system one.
+- `registry_url` (Optional): Registry to set up for auth. Will set the registry in a project level .npmrc and .yarnrc file, and set up auth to read in from `env.NODE_AUTH_TOKEN`.

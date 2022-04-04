@@ -87,3 +87,19 @@ jobs:
         uses: ./test-action
         with:
           cache_dependencies: "true"
+  setup-with-node-registry:
+    name: Setup with GitHub npm registry
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-20.04, ubuntu-18.04]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          path: test-action
+      - name: Setup @aws-amplify/cli@latest
+        uses: ./test-action
+        with:
+          registry_url: "https://npm.pkg.github.com"
